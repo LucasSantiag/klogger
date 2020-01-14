@@ -1,7 +1,7 @@
 from pynput.keyboard import Listener, Key
 from collections import deque
 import datetime
-# import pyAesCrypt
+import pyAesCrypt
 
 password = ['t', 'd', 'k', 'Key.enter', 'Key.shift']
 atualChars = deque(maxlen=5)
